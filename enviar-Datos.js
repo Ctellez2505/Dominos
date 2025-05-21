@@ -70,3 +70,43 @@ if (require.main === module) {
 
 // También exportamos la función principal para poder usarla desde otros archivos
 module.exports = ejecutarProceso;
+
+
+/*
+Mejoras:
+
+ESTRUCTURA DE DATOS:
+
+Elimina los parámetros "mostrarNavegador" y "velocidad" del objeto de datos.
+El objeto facturaData debe contener SOLO datos relevantes para la factura (rfc, ticket, tienda, fecha).
+El navegador siempre debe mostrarse (headless: false), no debe ser configurable.
+
+
+SISTEMA DE LOGS MEJORADO:
+
+Agrega timestamp a cada mensaje de log:
+console.log([${new Date().toISOString()}] Iniciando proceso...);
+Usa formato consistente para todos los mensajes (evita mezclar emojis con texto plano)
+Diferencia claramente tipos de mensajes (INFO, WARN, ERROR)
+
+
+ORGANIZACIÓN DE CAPTURAS DE ERROR:
+
+Crea una estructura de carpetas para las capturas de pantalla:
+const screenshotsDir = ./screenshots/${YYYY-MM-DD};
+Guarda capturas con nombres descriptivos que incluyan timestamp
+Ejemplo:
+const screenshotPath = ${screenshotsDir}/error-${hora-minuto-segundo}.png;
+
+SEGURIDAD ANTI-DETECCIÓN:
+
+Implementa puppeteer-extra con StealthPlugin para evitar la detección de bots:
+const puppeteerExtra = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteerExtra.use(StealthPlugin());
+Configura un user-agent personalizado.
+Oculta propiedades que revelan automatización:
+await page.evaluateOnNewDocument(() => {
+Object.defineProperty(navigator, 'webdriver', { get: () => false });
+});
+*/
