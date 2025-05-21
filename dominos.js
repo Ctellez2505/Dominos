@@ -53,3 +53,37 @@ const puppeteer = require("puppeteer");
         //await browser.close();
     }
 })();
+
+/*
+
+Falta el package.json, no se puede ejecutar el código sin él.
+
+A Mejorar:
+
+1. Convierte esto en una función que pueda recibir parámetros y ser importada desde otros archivos.
+
+2. Los datos (RFC, ticket, tienda, fecha) deben recibirse como un objeto JavaScript con los parámetros necesarios.
+   Ejemplo: { rfc: 'HH010580P', ticket: '012345678', tienda: '01112', fecha: '01/12/2024' }
+
+3. El browser.close() está comentado en el bloque finally. Siempre debes cerrar el navegador al terminar para evitar fugas de memoria.
+
+4. No hay verificación del resultado (éxito/fracaso) ni devolución de información sobre lo ocurrido.
+
+5. IMPORTANTE: Implementa un sistema de logs para registrar cada paso del proceso.
+   Esto facilita la depuración y el seguimiento de la ejecución. Puedes usar 
+   console.log o una librería como winston para logs más estructurados.
+
+Resumen:
+- Refactoriza este código para crear una función llamada 'procesarFacturaDominos' 
+  que reciba un objeto JavaScript con los datos necesarios y devuelva una promesa con el 
+  resultado del proceso.
+- La función debería poder usarse así:
+  procesarFacturaDominos({
+    rfc: 'HH010580P',
+    ticket: '012345678',
+    tienda: '01112',
+    fecha: '01/12/2024'
+  }).then(resultado => console.log(resultado));
+- Incluye validación de los datos recibidos antes de iniciar el proceso.
+- Agrega logs al inicio y fin de cada operación importante para facilitar el seguimiento.
+*/
