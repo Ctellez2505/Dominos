@@ -21,13 +21,16 @@ function logWarn(...args) {
 function logError(...args) {
   console.error(chalk.red(`[${new Date().toISOString()}] [ERROR]`), ...args);
 }
+const procesarFacturaDominos = require('./procesarFacturaDominos');
 
 // Configuración de datos para la factura
 const datosDeLaFactura = {
   rfc: 'HH010580P',
   ticket: '012345678',
   tienda: '01112',
-  fecha: '01/12/2024' 
+  fecha: '01/12/2024',
+  mostrarNavegador: true,  
+  velocidad: 100  
 };
 
 // Función principal que ejecuta el proceso
@@ -41,6 +44,7 @@ async function ejecutarProceso() {
     
     // Procesamos el resultado
     if (resultado.exito) {
+
       logInfo("Factura procesada correctamente");
       logInfo("Detalles", resultado);
     } else {
