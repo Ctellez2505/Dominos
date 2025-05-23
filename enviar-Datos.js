@@ -33,6 +33,8 @@ const datosDeLaFactura = {
   velocidad: 100  
 };
 
+
+
 // Función principal que ejecuta el proceso
 async function ejecutarProceso() {
   logInfo("Iniciando proceso de facturación");
