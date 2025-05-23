@@ -28,9 +28,7 @@ const datosDeLaFactura = {
   rfc: 'HH010580P',
   ticket: '012345678',
   tienda: '01112',
-  fecha: '01/12/2024',
-  mostrarNavegador: true,  
-  velocidad: 100  
+  fecha: '01/12/2024' 
 };
 
 
