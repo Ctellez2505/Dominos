@@ -30,7 +30,7 @@ const datosDeLaFactura = {
   tienda: '01112',
   fecha: '01/12/2024' 
 };
-
+// Buen trabajo
 
 
 // Función principal que ejecuta el proceso
